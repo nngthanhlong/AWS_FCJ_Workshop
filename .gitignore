@@ -1,6 +1,1 @@
-# Ignore Hugo build lock
-.hugo_build.lock
-
-# Ignore backups
-*_backup/
-backup/
+public/*
