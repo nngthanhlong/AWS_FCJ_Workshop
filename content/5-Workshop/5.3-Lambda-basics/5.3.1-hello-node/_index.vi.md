@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Lambda Hello World (Node.js)"
 weight: 1
 chapter: false

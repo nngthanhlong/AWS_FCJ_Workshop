@@ -1,31 +1,30 @@
 ---
-title : "Overview"
-
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Introduction"
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-## Objectives
+## Goals
 
-Introduce the serverless workshop: creating Lambda functions (Node.js/Python), receiving input parameters, integrating API Gateway, and deploying an in-app purchase recommendation API. Emphasize how to reduce deployment time using Lambda without requiring server management.
+Introduce the serverless workshop: create Lambda (Node.js/Python), accept input parameters, integrate API Gateway, and deploy an in-app purchase suggestion API. Emphasize fast delivery with Lambda without managing servers.
 
-## General Architecture
+## Architecture at a glance
 
-- Lambda receives events, processes logic, returns JSON.  
-- API Gateway acts as the REST front door, maps methods → Lambda.  
+- Lambda receives events, processes logic, and returns JSON.  
+- API Gateway is the REST front door mapping methods to Lambda.  
 - Optional: custom domain/stage for multiple environments.
 
-## Expected Results
+## Expected outcomes
 
-- 2 Hello World functions (Node.js/Python) with parameters.  
-- 1 REST endpoint (GET/POST) via API Gateway.  
-- 1 business logic function (purchase recommendation) returning JSON.
+- Two Hello World functions (Node.js/Python) with parameters.  
+- One REST endpoint (GET/POST) via API Gateway.  
+- One business-logic function (purchase suggestions) returning JSON.
 
-## Duration and Structure
+## Timing & structure
 
-- Part 1: Lambda basics, test in console.  
-- Part 2: API Gateway, mapping input, testing.  
-- Part 3: In-app purchase exercise, cleanup resources.
+- Part 1: Lambda basics, testing in the console.  
+- Part 2: API Gateway, input mapping, testing.  
+- Part 3: In-app purchase exercise, clean up resources.
 
 ![image](/images/5-Workshop/Api_lambda.png)

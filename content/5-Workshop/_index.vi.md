@@ -5,7 +5,6 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-
 ## Tổng quan
 
 Workshop serverless với AWS Lambda và API Gateway: tạo hàm Hello World (Node.js/Python), thêm tham số, xuất bản API GET/POST, và xây dựng hàm gợi ý in-app purchase. Tập trung triển khai nhanh, không quản lý server, chú ý chi phí và vận hành.

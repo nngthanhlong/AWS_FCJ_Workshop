@@ -1,20 +1,22 @@
 ---
-title: "API Gateway"
+title: "API Gateway Integration"
 weight: 4
 chapter: false
 pre: " <b> 5.4. </b> "
 ---
 
-## Objectives
+## Goal
 
-Publish Lambda via API Gateway (REST), create resources/methods, and test GET/POST using curl or Postman.
+Publish Lambda through API Gateway (REST), create resources/methods, and test GET/POST with curl or Postman.
 
 ![image](/images/5-Workshop/Api_lambda.png)
 
 ## Steps
 
-- Create REST API, resource `/hello`, enable CORS if needed.  
-- Add GET/POST methods, map to Lambda (proxy integration).  
-- Deploy stage `dev`, note the Invoke URL.  
-- Test GET/POST, handle errors (400) when data is missing.  
-- Optional: enable CORS or custom domain.
+- **Create REST API**: new API, stage to a named environment (e.g., `dev`).  
+- **Resource & methods**: create `/hello`, add `GET` and/or `POST`, choose Lambda integration, select your function.  
+- **Deploy stage**: deploy to `dev` and note the invoke URL.  
+- **Test**:  
+  - GET: `curl "<invoke-url>/hello?name=alice"`  
+  - POST: `curl -X POST -H "Content-Type: application/json" -d '{"name":"alice"}' "<invoke-url>/hello"`  
+- **Handle input in Lambda**: read `event.queryStringParameters` for GET, parse `event.body` for POST; return JSON with proper status codes.

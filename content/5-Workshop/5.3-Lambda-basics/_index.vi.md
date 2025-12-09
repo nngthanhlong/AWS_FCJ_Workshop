@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Lambda cơ bản"
 weight: 3
 chapter: false

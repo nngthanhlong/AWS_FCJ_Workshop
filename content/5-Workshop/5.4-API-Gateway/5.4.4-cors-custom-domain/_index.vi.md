@@ -1,4 +1,4 @@
-﻿---
+---
 title: "CORS & custom domain"
 weight: 4
 chapter: false

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Lambda Hello World (Python)"
 weight: 2
 chapter: false

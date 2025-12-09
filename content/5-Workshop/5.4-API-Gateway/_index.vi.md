@@ -1,4 +1,4 @@
-﻿---
+---
 title: "API Gateway"
 weight: 4
 chapter: false

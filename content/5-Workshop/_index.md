@@ -5,16 +5,15 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-
 ## Overview
 
-A serverless workshop with AWS Lambda and API Gateway: creating a Hello World function (Node.js/Python), adding parameters, publishing GET/POST APIs, and building an in-app purchase recommendation function. Focus on rapid deployment, serverless approach, cost consciousness, and operations.
+Serverless workshop with AWS Lambda and API Gateway: create Hello World functions (Node.js/Python), add parameters, publish GET/POST APIs, and build an in-app purchase recommendation function. Focus on fast delivery, no server management, with cost and operations awareness.
 
 ## Content
 
-1. [Overview](5.1-Workshop-overview/)
-2. [Prerequisites](5.2-Prerequiste/)
+1. [Introduction](5.1-Workshop-overview/)
+2. [Prerequisites](5.2-Prerequisite/)
 3. [Lambda Basics](5.3-Lambda-basics/)
 4. [API Gateway](5.4-API-Gateway/)
-5. [Sample App (Recommendation Function)](5.5-Sample-app/)
+5. [Recommendation Function (sample app)](5.5-Sample-app/)
 6. [Cleanup](5.6-Cleanup/)

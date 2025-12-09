@@ -1,54 +1,1769 @@
-<!doctype html><html lang=vi class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.150.0"><meta name=description content><meta name=author content="thienlh@thienlu.com"><link rel=icon href=../../../images/favicon.png type=image/png><title>Blog 2 :: Báo cáo thực tập</title><link href=../../../css/nucleus.css?1765276331 rel=stylesheet><link href=../../../css/fontawesome-all.min.css?1765276331 rel=stylesheet><link href=../../../css/hybrid.css?1765276331 rel=stylesheet><link href=../../../css/featherlight.min.css?1765276331 rel=stylesheet><link href=../../../css/perfect-scrollbar.min.css?1765276331 rel=stylesheet><link href=../../../css/auto-complete.css?1765276331 rel=stylesheet><link href=../../../css/atom-one-dark-reasonable.css?1765276331 rel=stylesheet><link href=../../../css/theme.css?1765276331 rel=stylesheet><link href=../../../css/hugo-theme.css?1765276331 rel=stylesheet><link href=../../../css/theme-workshop.css?1765276331 rel=stylesheet><script src=../../../js/jquery-3.3.1.min.js?1765276331></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=../../../vi/3-blogstranslated/3.2-blog2/><nav id=sidebar class=showVisitedLinks><div id=header-wrapper><div id=header><a id=logo href=../../../><svg id="Layer_1" data-name="Layer 1" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff}.cls-2{fill:#f90;fill-rule:evenodd}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09 10.85a4.7 4.7.0 00.19 1.48 7.73 7.73.0 00.54 1.19.77.77.0 01.12.38.64.64.0 01-.32.49l-1 .7a.83.83.0 01-.44.15.69.69.0 01-.49-.23 3.8 3.8.0 01-.6-.77q-.25-.42-.51-1a6.14 6.14.0 01-4.89 2.3 4.54 4.54.0 01-3.32-1.19 4.27 4.27.0 01-1.22-3.2 4.28 4.28.0 011.46-3.4A6.06 6.06.0 017.69 6.46a12.47 12.47.0 011.76.13q.92.13 1.91.36V5.73a3.65 3.65.0 00-.79-2.66A3.81 3.81.0 007.86 2.3a7.71 7.71.0 00-1.79.22 12.78 12.78.0 00-1.79.57 4.55 4.55.0 01-.58.22h-.26q-.35.0-.35-.52V2a1.09 1.09.0 01.12-.58 1.2 1.2.0 01.47-.35A10.88 10.88.0 015.77.32 10.19 10.19.0 018.36.0a6 6 0 014.35 1.35 5.49 5.49.0 011.38 4.09zM7.34 13.38a5.36 5.36.0 001.72-.31A3.63 3.63.0 0010.63 12 2.62 2.62.0 0011.19 11a5.63 5.63.0 00.16-1.44v-.7a14.35 14.35.0 00-1.53-.28 12.37 12.37.0 00-1.56-.1 3.84 3.84.0 00-2.47.67A2.34 2.34.0 005 11a2.35 2.35.0 00.61 1.76A2.4 2.4.0 007.34 13.38zm13.35 1.8a1 1 0 01-.64-.16 1.3 1.3.0 01-.35-.65L15.81 1.51a3 3 0 01-.15-.67.36.36.0 01.41-.41H17.7a1 1 0 01.65.16 1.4 1.4.0 01.33.65l2.79 11 2.59-11A1.17 1.17.0 0124.39.6a1.1 1.1.0 01.67-.16H26.4a1.1 1.1.0 01.67.16 1.17 1.17.0 01.32.65L30 12.39 32.88 1.25A1.39 1.39.0 0133.22.6a1 1 0 01.65-.16h1.54a.36.36.0 01.41.41 1.36 1.36.0 010 .26 3.64 3.64.0 01-.12.41l-4 12.86a1.3 1.3.0 01-.35.65 1 1 0 01-.64.16H29.25a1 1 0 01-.67-.17 1.26 1.26.0 01-.32-.67L25.67 3.64l-2.56 10.7a1.26 1.26.0 01-.32.67 1 1 0 01-.67.17zm21.36.44a11.28 11.28.0 01-2.56-.29 7.44 7.44.0 01-1.92-.67 1 1 0 01-.61-.93v-.84q0-.52.38-.52a.9.9.0 01.31.06l.42.17a8.77 8.77.0 001.83.58 9.78 9.78.0 002 .2 4.48 4.48.0 002.43-.55 1.76 1.76.0 00.86-1.57 1.61 1.61.0 00-.45-1.16A4.29 4.29.0 0043 9.22l-2.41-.76A5.15 5.15.0 0138 6.78a3.94 3.94.0 01-.83-2.41 3.7 3.7.0 01.45-1.85 4.47 4.47.0 011.19-1.37 5.27 5.27.0 011.7-.86A7.4 7.4.0 0142.6.0a8.87 8.87.0 011.12.07q.57.07 1.08.19t.95.26a4.27 4.27.0 01.7.29 1.59 1.59.0 01.49.41.94.94.0 01.15.55v.79q0 .52-.38.52a1.76 1.76.0 01-.64-.2 7.74 7.74.0 00-3.2-.64 4.37 4.37.0 00-2.21.47 1.6 1.6.0 00-.79 1.48 1.58 1.58.0 00.49 1.18 4.94 4.94.0 001.83.92L44.55 7a5.08 5.08.0 012.57 1.6A3.76 3.76.0 0147.9 11a4.21 4.21.0 01-.44 1.93 4.4 4.4.0 01-1.21 1.47 5.43 5.43.0 01-1.85.93A8.25 8.25.0 0142.05 15.62z"/><path class="cls-2" d="M45.19 23.81C39.72 27.85 31.78 30 25 30A36.64 36.64.0 01.22 20.57c-.51-.46-.06-1.09.56-.74A49.78 49.78.0 0025.53 26.4 49.23 49.23.0 0044.4 22.53C45.32 22.14 46.1 23.14 45.19 23.81z"/><path class="cls-2" d="M47.47 21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74 3.13-2.2 8.27-1.57 8.86-.83s-.16 5.89-3.09 8.35c-.45.38-.88.18-.68-.32C46.69 25.8 48.17 22.11 47.47 21.21z"/></svg></a></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label>
-<input data-search-input id=search-by type=search placeholder=Search...>
-<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=../../../js/lunr.min.js?1765276331></script><script type=text/javascript src=../../../js/auto-complete.js?1765276331></script><script type=text/javascript>var baseurl="https://thienluhoan.github.io/workshop-template//vi"</script><script type=text/javascript src=../../../js/search.js?1765276331></script></div><div class=highlightable><ul class=topics><li data-nav-id=/vi/1-worklog/ title="Nhật ký công việc" class=dd-item><a href=../../../vi/1-worklog/><b>1. </b>Nhật ký công việc
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/1-worklog/1.1-week1/ title="Worklog Tuần 1" class=dd-item><a href=../../../vi/1-worklog/1.1-week1/><b>1.1. </b>Worklog Tuần 1
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.2-week2/ title="Worklog Tuần 2" class=dd-item><a href=../../../vi/1-worklog/1.2-week2/><b>1.2. </b>Worklog Tuần 2
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.3-week3/ title="Worklog Tuần 3" class=dd-item><a href=../../../vi/1-worklog/1.3-week3/><b>1.3. </b>Worklog Tuần 3
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.4-week4/ title="Worklog Tuần 4" class=dd-item><a href=../../../vi/1-worklog/1.4-week4/><b>1.4. </b>Worklog Tuần 4
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.5-week5/ title="Worklog Tuần 5" class=dd-item><a href=../../../vi/1-worklog/1.5-week5/><b>1.5. </b>Worklog Tuần 5
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.6-week6/ title="Worklog Tuần 6" class=dd-item><a href=../../../vi/1-worklog/1.6-week6/><b>1.6. </b>Worklog Tuần 6
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.7-week7/ title="Worklog Tuần 7" class=dd-item><a href=../../../vi/1-worklog/1.7-week7/><b>1.7. </b>Worklog Tuần 7
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.8-week8/ title="Worklog Tuần 8" class=dd-item><a href=../../../vi/1-worklog/1.8-week8/><b>1.8. </b>Worklog Tuần 8
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.9-week9/ title="Worklog Tuần 9" class=dd-item><a href=../../../vi/1-worklog/1.9-week9/><b>1.9. </b>Worklog Tuần 9
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.10-week10/ title="Worklog Tuần 10" class=dd-item><a href=../../../vi/1-worklog/1.10-week10/><b>1.10. </b>Worklog Tuần 10
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.11-week11/ title="Worklog Tuần 11" class=dd-item><a href=../../../vi/1-worklog/1.11-week11/><b>1.11. </b>Worklog Tuần 11
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.12-week12/ title="Worklog Tuần 12" class=dd-item><a href=../../../vi/1-worklog/1.12-week12/><b>1.12 </b>Worklog Tuần 12
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/2-proposal/ title=Proposal class=dd-item><a href=../../../vi/2-proposal/><b>2. </b>Proposal
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/3-blogstranslated/ title="Các bài blogs đã dịch" class="dd-item
-parent"><a href=../../../vi/3-blogstranslated/><b>3. </b>Các bài blogs đã dịch
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/3-blogstranslated/3.1-blog1/ title="Blog 1" class=dd-item><a href=../../../vi/3-blogstranslated/3.1-blog1/><b>3.1. </b>Blog 1
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/3-blogstranslated/3.2-blog2/ title="Blog 2" class="dd-item
-active"><a href=../../../vi/3-blogstranslated/3.2-blog2/><b>3.2. </b>Blog 2
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/3-blogstranslated/3.3-blog3/ title="Blog 3" class=dd-item><a href=../../../vi/3-blogstranslated/3.3-blog3/><b>3.3. </b>Blog 3
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/4-eventparticipated/ title="Các events đã tham gia" class=dd-item><a href=../../../vi/4-eventparticipated/><b>4. </b>Các events đã tham gia
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/4-eventparticipated/4.1-event1/ title="Event 1" class=dd-item><a href=../../../vi/4-eventparticipated/4.1-event1/><b>4.1. </b>Event 1
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/4-eventparticipated/4.2-event2/ title="Event 2" class=dd-item><a href=../../../vi/4-eventparticipated/4.2-event2/><b>4.2. </b>Event 2
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/ title=Workshop class=dd-item><a href=../../../vi/5-workshop/><b>5. </b>Workshop
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/5.1-workshop-overview/ title="Giới thiệu" class=dd-item><a href=../../../vi/5-workshop/5.1-workshop-overview/><b>5.1. </b>Giới thiệu
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5.2-prerequiste/ title="Chuẩn bị" class=dd-item><a href=../../../vi/5-workshop/5.2-prerequiste/><b>5.2. </b>Chuẩn bị
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5.3-lambda-basics/ title="Lambda cơ bản" class=dd-item><a href=../../../vi/5-workshop/5.3-lambda-basics/><b>5.3. </b>Lambda cơ bản
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/5.3-lambda-basics/5.3.1-hello-node/ title="Lambda Hello World (Node.js)" class=dd-item><a href=../../../vi/5-workshop/5.3-lambda-basics/5.3.1-hello-node/><b>5.3.1 </b>Lambda Hello World (Node.js)
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5.3-lambda-basics/5.3.2-hello-python/ title="Lambda Hello World (Python)" class=dd-item><a href=../../../vi/5-workshop/5.3-lambda-basics/5.3.2-hello-python/><b>5.3.2 </b>Lambda Hello World (Python)
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/5.4-api-gateway/ title="API Gateway" class=dd-item><a href=../../../vi/5-workshop/5.4-api-gateway/><b>5.4. </b>API Gateway
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/5.4-api-gateway/5.4.1-create-api/ title="Tạo REST API" class=dd-item><a href=../../../vi/5-workshop/5.4-api-gateway/5.4.1-create-api/><b>5.4.1 </b>Tạo REST API
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5.4-api-gateway/5.4.2-add-post/ title="Thêm phương thức POST" class=dd-item><a href=../../../vi/5-workshop/5.4-api-gateway/5.4.2-add-post/><b>5.4.2 </b>Thêm phương thức POST
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5.4-api-gateway/5.4.3-test-api/ title="Kiểm Thử API Gateway" class=dd-item><a href=../../../vi/5-workshop/5.4-api-gateway/5.4.3-test-api/><b>5.4.3 </b>Kiểm Thử API Gateway
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5.4-api-gateway/5.4.4-cors-custom-domain/ title="CORS & custom domain" class=dd-item><a href=../../../vi/5-workshop/5.4-api-gateway/5.4.4-cors-custom-domain/><b>5.4.4 </b>CORS & custom domain
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/5.5-sample-app/ title="Ứng dụng mẫu: Gợi ý in-app purchase" class=dd-item><a href=../../../vi/5-workshop/5.5-sample-app/><b>5.5. </b>Ứng dụng mẫu: Gợi ý in-app purchase
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5.6-cleanup/ title="Dọn dẹp tài nguyên" class=dd-item><a href=../../../vi/5-workshop/5.6-cleanup/><b>5.6. </b>Dọn dẹp tài nguyên
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/6-self-evaluation/ title="Tự đánh giá" class=dd-item><a href=../../../vi/6-self-evaluation/><b>6. </b>Tự đánh giá
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/7-feedback/ title="Chia sẻ, đóng góp ý kiến" class=dd-item><a href=../../../vi/7-feedback/><b>7. </b>Chia sẻ, đóng góp ý kiến
-<i class="fas fa-check read-icon"></i></a></li></ul><section id=shortcuts><h3>More</h3><ul><li><a class=padding href=https://www.facebook.com/groups/awsstudygroupfcj/><i class='fab fa-facebook'></i> AWS Study Group</a></li></ul></section><section id=prefooter><hr><ul><li><a class=padding><i class="fas fa-language fa-fw"></i><div class=select-style><select id=select-language onchange="location=this.value"><option id=en value=https://thienluhoan.github.io/workshop-template/3-blogstranslated/3.2-blog2/>English</option><option id=vi value=https://thienluhoan.github.io/workshop-template/vi/3-blogstranslated/3.2-blog2/ selected>Tiếng Việt</option></select>
-<svg id="Capa_1" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg></div></a></li><li><a class=padding href=# data-clear-history-toggle><i class="fas fa-history fa-fw"></i> Clear History</a></li></ul></section><section id=footer><left><b>Workshop</b><br><img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title=Migrate alt="web counter" border=0></a><br><b><a href=https://cloudjourney.awsstudygroup.com/>Cloud Journey</a></b><br><img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" alt="web counter" border=0>
-</left><left><br><br><b>Last Updated</b><br><i><span id=lastUpdated style=color:orange></span>
-</i><script>const today=new Date,formattedDate=today.toLocaleDateString("en-GB");document.getElementById("lastUpdated").textContent=formattedDate</script></left><left><br><br><b>Team</b><br><i><a href=https://www.facebook.com/groups/660548818043427 style=color:orange>First Cloud Journey</a><br></i></left><script async defer src=https://buttons.github.io/buttons.js></script></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i>
-</a></span><span id=toc-menu><i class="fas fa-list-alt"></i></span>
-<span class=links><a href=../../../vi/>Báo cáo thực tập</a> > <a href=../../../vi/3-blogstranslated/>Các bài blogs đã dịch</a> > Blog 2</span></div><div class=progress><div class=wrapper><nav id=TableOfContents></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Blog 2</h1><h1 id=thông-báo-amazon-ec2-m4-và-m4-pro-mac-instances>Thông báo Amazon EC2 M4 và M4 Pro Mac instances</h1><p>Bởi <a href=https://aws.amazon.com/blogs/aws/author/stormacq/>Sébastien Stormacq</a> vào ngày 12 THÁNG 9 2025 trong <a href=https://aws.amazon.com/blogs/aws/category/compute/amazon-ec2-mac-instances/>Amazon EC2 Mac Instances</a>, <a href=https://aws.amazon.com/blogs/aws/category/news/launch/>Launch</a>, <a href=https://aws.amazon.com/blogs/aws/category/news/>News</a> <a href=https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/>Permalink</a> <a href=https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/>Comments</a>
-<a href=https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/>Permalink</a> Comments Share
-Voiced by Polly</p><p>Là người đã sử dụng macOS từ năm 2001 và các <a href=https://aws.amazon.com/ec2/instance-types/mac/>Amazon EC2 Mac instances</a> từ khi chúng ra mắt 4 năm trước, tôi đã giúp nhiều khách hàng mở rộng các pipeline tích hợp & phân phối liên tục (CI/CD) trên AWS. Hôm nay, tôi rất hào hứng chia sẻ rằng các instance Amazon EC2 <strong>M4</strong> và <strong>M4 Pro</strong> Mac hiện đã khả dụng chính thức.</p><p>Các nhóm phát triển xây ứng dụng cho các nền tảng Apple cần tài nguyên tính toán mạnh để xử lý các quy trình build phức tạp và chạy nhiều giả lập iOS cùng lúc. Khi các dự án phát triển ngày càng lớn và tinh vi, các nhóm cần hiệu năng và dung lượng bộ nhớ cao hơn để duy trì chu kỳ phát triển nhanh.</p><p><strong>Apple M4 Mac mini làm lõi</strong></p><p>Các instance EC2 M4 Mac (được gọi là mac-m4.metal trong API) được xây dựng dựa trên máy <a href=https://www.apple.com/mac-mini/specs/>Apple M4 Mac mini</a> và sử dụng <a href=https://aws.amazon.com/ec2/nitro/>AWS Nitro System</a>. Chúng có chip Apple silicon M4 với 10 lõi CPU (bốn lõi hiệu năng và sáu lõi hiệu quả), GPU 10 lõi, Neural Engine 16 lõi, và bộ nhớ hợp nhất 24 GB, mang lại hiệu năng cải thiện cho các workload build ứng dụng iOS và macOS. Khi xây dựng và kiểm thử ứng dụng, các instance M4 Mac cho hiệu năng build ứng dụng tốt hơn tới 20% so với các instance EC2 M2 Mac.</p><p>Instance EC2 M4 Pro Mac ( mac-m4pro.metal trong API ) được trang bị chip Apple silicon M4 Pro với 14 lõi CPU, 20 lõi GPU, Neural Engine 16 lõi và bộ nhớ hợp nhất 48 GB. Những instance này cung cấp hiệu năng build ứng dụng tốt hơn tới 15% so với các instance EC2 M2 Pro Mac. Thêm dung lượng bộ nhớ và công suất tính toán cho phép chạy nhiều bài kiểm thử song song bằng nhiều giả lập thiết bị.</p><p>Mỗi instance M4 và M4 Pro Mac giờ đây đi kèm với 2 TB lưu trữ nội bộ (local storage), cung cấp lưu trữ độ trễ thấp để cải thiện caching và hiệu năng build & test.</p><p>Cả hai loại instance đều hỗ trợ macOS <strong>Sonoma phiên bản 15.6 và mới hơn</strong> như các <a href=https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>Amazon Machine Images (AMIs)</a>. Hệ thống AWS Nitro cung cấp băng thông mạng <a href=https://aws.amazon.com/vpc/>Amazon Virtual Private Cloud (Amazon VPC)</a> lên đến 10 Gbps và băng thông lưu trữ <a href=https://aws.amazon.com/ebs/>Amazon Elastic Block Store (Amazon EBS)</a> 8 Gbps qua kết nối Thunderbolt tốc độ cao.</p><p>Các instance EC2 Mac tích hợp liền mạch với các dịch vụ AWS, nghĩa là bạn có thể:</p><ul><li><p>Xây dựng pipeline CI/CD tự động sử dụng AWS CodeBuild và AWS CodePipeline</p></li><li><p>Lưu trữ và quản lý nhiều phiên bản bí mật build của bạn, như chứng chỉ phát triển Apple và khóa, trên AWS Secrets Manager</p></li><li><p>Quản lý hạ tầng phát triển của bạn bằng AWS CloudFormation</p></li><li><p>Giám sát hiệu năng instance với Amazon CloudWatch</p></li></ul><p><strong>Cách bắt đầu</strong></p><p>Bạn có thể khởi chạy một instance EC2 M4 hoặc M4 Pro Mac qua <a href=https://console.aws.amazon.com/>AWS Management Console</a>, <a href=https://aws.amazon.com/cli/>AWS Command Line Interface (AWS CLI)</a>, or <a href=https://aws.amazon.com/tools/>AWS SDKs</a>.</p><p>Ví dụ trong demo này, tôi sẽ khởi động một instance M4 Pro từ console. Tôi đầu tiên cấp phát một <strong>dedicated host</strong> để chạy các instance của mình. Trên <a href=https://console.aws.amazon.com/>AWS Management Console</a> tôi vào EC2, rồi <strong>Dedicated Hosts</strong>, và chọn <strong>Allocate Dedicated Host</strong>.</p><p>Rồi, tôi nhập tag Name và chọn Family instance (mac‑m4pro) và loại instance (mac‑m4pro.metal). Tôi chọn một Availability Zone và bỏ chọn Host maintenance.</p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a1.png alt="Capacity Blocks Requirements"></p><p>EC2 Mac M$ – Dedicated hosts
-Hoặc tôi có thể dùng CLI:</p><p><strong>aws ec2 allocate-hosts<br>&ndash;availability-zone-id &ldquo;usw2-az4&rdquo;<br>&ndash;auto-placement &ldquo;off&rdquo;<br>&ndash;host-recovery &ldquo;off&rdquo;<br>&ndash;host-maintenance &ldquo;off&rdquo;<br>&ndash;quantity 1<br>&ndash;instance-type &ldquo;mac-m4pro.metal&rdquo;</strong></p><p>Sau khi host dedicated được cấp cho tài khoản của tôi, tôi chọn host vừa cấp, rồi chọn menu Actions và chọn Launch instance(s) onto host.
-Lưu ý console cung cấp cho bạn, bên cạnh các thông tin khác, các phiên bản macOS hỗ trợ mới nhất cho loại host này. Trong trường hợp này, là macOS 15.6.</p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a2.png alt="Capacity Blocks Requirements"></p><p>Trên trang Launch an instance, tôi nhập Name. Tôi chọn một AMI macOS Sequoia. Tôi đảm bảo Architecture là Arm 64-bit và loại instance là mac-m4pro.metal.</p><p>Phần còn lại các tham số không đặc thù cho EC2 Mac: cấu hình mạng và lưu trữ. Khi khởi động một instance dùng cho phát triển, hãy chắc chọn volume tối thiểu 200 GB trở lên. Volume mặc định 100 GB không đủ để tải xuống và cài Xcode.</p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a3.png alt="Capacity Blocks Requirements"></p><p>Khi đã sẵn sàng, tôi nhấn nút Launch instance màu cam ở cuối trang. Instance sẽ nhanh chóng xuất hiện ở trạng thái Running trong console. Tuy nhiên, có thể mất tới 15 phút để bạn có thể kết nối qua SSH.</p><p>Hoặc tôi có thể dùng lệnh này:</p><p><strong>aws ec2 run-instances<br>&ndash;image-id &ldquo;ami-000420887c24e4ac8&rdquo; \ # ID AMI tùy vùng !
-&ndash;instance-type &ldquo;mac-m4pro.metal&rdquo;<br>&ndash;key-name &ldquo;my-ssh-key-name&rdquo;<br>&ndash;network-interfaces &lsquo;{&ldquo;AssociatePublicIpAddress&rdquo;:true,&ldquo;DeviceIndex&rdquo;:0,&ldquo;Groups&rdquo;:[&ldquo;sg-0c2f1a3e01b84f3a3&rdquo;]}&rsquo; \ # Security Group ID phụ thuộc config của bạn<br>&ndash;tag-specifications &lsquo;{&ldquo;ResourceType&rdquo;:&ldquo;instance&rdquo;,&ldquo;Tags&rdquo;:[{&ldquo;Key&rdquo;:&ldquo;Name&rdquo;,&ldquo;Value&rdquo;:&ldquo;My Dev Server&rdquo;}]}&rsquo;<br>&ndash;placement &lsquo;{&ldquo;HostId&rdquo;:&ldquo;h-0e984064522b4b60b&rdquo;,&ldquo;Tenancy&rdquo;:&ldquo;host&rdquo;}&rsquo; \ # Host ID tùy config của bạn<br>&ndash;private-dns-name-options &lsquo;{&ldquo;HostnameType&rdquo;:&ldquo;ip-name&rdquo;,&ldquo;EnableResourceNameDnsARecord&rdquo;:true,&ldquo;EnableResourceNameDnsAAAARecord&rdquo;:false}&rsquo;<br>&ndash;count &ldquo;1&rdquo;</strong></p><p><strong>Cài Xcode từ Terminal</strong></p><p>Sau khi instance có thể truy cập, tôi có thể kết nối bằng SSH và cài công cụ phát triển. Tôi dùng <a href=https://github.com/sebsto/xcodeinstall>xcodeinstall</a> để tải và cài <a href=https://developer.apple.com/documentation/Xcode-Release-Notes/xcode-16_4-release-notes>Xcode 16.4</a>.</p><p>Từ laptop của tôi, tôi mở session với credentials Apple developer:</p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a4.png alt="Capacity Blocks Requirements"></p><p>Tôi kết nối với EC2 Mac instance cái mà tôi vừa mới launched. Sau đó, tôi tải và cài đặc Xcode:</p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a5.png alt="Capacity Blocks Requirements"></p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a6.png alt="Capacity Blocks Requirements"></p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a7.png alt="Capacity Blocks Requirements"></p><p><strong>Những điều cần biết</strong></p><ul><li><p>Chọn volume EBS tối thiểu 200 GB cho mục đích phát triển. Volume mặc định 100 GB không đủ để cài Xcode. Tôi thường chọn 500 GB. Khi tăng kích thước EBS sau khi instance đã khởi chạy, nhớ to resize the APFS filesystem.</p></li><li><p>Ngoài ra, bạn có thể chọn cài công cụ phát triển và framework của bạn lên ổ SSD nội bộ 2 TB độ trễ thấp có sẵn trong Mac mini. Lưu ý rằng nội dung volume này gắn với vòng đời instance, không với dedicated host. Nghĩa là mọi thứ sẽ bị xóa khỏi ổ SSD nội bộ khi bạn dừng và khởi động lại instance.</p></li><li><p>Các instance mac-m4.metal và mac-m4pro.metal hỗ trợ macOS Sequoia 15.6 và các phiên bản mới hơn.</p></li><li><p>Bạn có thể di chuyển các instance EC2 Mac hiện tại khi instance di chuyển đang chạy macOS 15 (Sequoia). Tạo một AMI tùy chỉnh từ instance hiện tại và khởi động một instance M4 hoặc M4 Pro từ AMI đó.</p></li></ul><p>Cuối cùng, tôi gợi ý bạn xem các hướng dẫn tôi viết để giúp bạn bắt đầu với EC2 Mac:</p><ul><li><p><a href=https://builder.aws.com/content/2duUEgh4u4TIDqfECiDkEbrn2Iw/start-an-amazon-ec2-mac-instance>Khởi động một instance EC2 Mac</a></p></li><li><p><a href=https://builder.aws.com/content/2duUtYq4ENzOLGLdEg0A3aeyCuj/connect-to-an-amazon-ec2-mac-instance>Kết nối tới instance EC2 Mac</a> (tôi chỉ bạn ba cách khác nhau để kết nối)</p></li><li><p><a href=https://builder.aws.com/content/2duRxOl9WuYETq6dMhAQQ1kDZLr/build-your-ios-applications-faster-with-a-cicd-pipeline>Xây ứng dụng nhanh hơn với pipeline CI/CD trên EC2 Mac</a></p></li></ul><p><strong>Giá cả và khả dụng</strong></p><p>Các instance EC2 M4 và M4 Pro Mac hiện có tại <strong>US East (N. Virginia)</strong> và <strong>US West (Oregon)</strong>, dự kiến mở rộng sang các vùng khác trong tương lai.
-Các instance EC2 Mac có thể mua dưới dạng <strong>Dedicated Hosts</strong> theo mô hình giá On-Demand và <a href=https://aws.amazon.com/savingsplans/>Savings Plans</a>. Việc tính phí cho EC2 Mac là theo giây với mức tối thiểu 24 giờ cấp phát để tuân theo Thỏa thuận Bản quyền phần mềm macOS của Apple. Sau khoảng thời gian tối thiểu 24 giờ, host có thể được giải phóng bất cứ lúc nào mà không cần cam kết tiếp.</p><p>Là người làm việc chặt với các nhà phát triển Apple, tôi tò mò xem bạn sẽ dùng các instance mới này như thế nào để tăng tốc chu kỳ phát triển của bạn. Sự kết hợp giữa hiệu năng gia tăng, dung lượng bộ nhớ cải thiện và tích hợp với dịch vụ AWS mở ra nhiều khả năng mới cho các đội xây ứng dụng cho iOS, macOS, iPadOS, tvOS, watchOS, và visionOS. Ngoài phát triển ứng dụng, Neural Engine của Apple silicon khiến các instance này là ứng viên hiệu quả chi phí để chạy workload inference <a href=https://aws.amazon.com/ai/machine-learning/>machine learning (ML)</a>. Tôi sẽ thảo luận chi tiết chủ đề này tại AWS re:Invent 2025, nơi tôi sẽ chia sẻ benchmark và best practices để tối ưu workload ML trên EC2 Mac.</p><p>Để tìm hiểu thêm về các instance EC2 M4 và M4 Pro Mac, bạn có thể truy cập trang <a href=https://aws.amazon.com/ec2/instance-types/mac/>Amazon EC2 Mac Instances</a> hoặc tham khảo <a href=https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html>EC2 Mac documentation</a>. Bạn có thể bắt đầu sử dụng các instance này ngay hôm nay để hiện đại hóa workflow phát triển Apple trên AWS.</p><p><img src=../../../images/3-BlogsTranslated/3.2-Blog2/a8.png alt="Capacity Blocks Requirements">
-<a href=https://linktr.ee/sebsto>Sébastien Stormacq</a></p><p>Seb đã viết code từ khi chạm Commodore 64 giữa những năm tám mươi. Anh truyền cảm hứng cho những người xây dựng để khai phá giá trị của đám mây AWS, dùng hỗn hợp bí mật giữa đam mê, nhiệt huyết, advocacy khách hàng, tò mò và sáng tạo. Anh ta quan tâm đến kiến trúc phần mềm, công cụ dev và điện toán di động. Nếu bạn muốn bán cho anh cái gì đó, đảm bảo nó có API. Theo dõi @sebsto trên Bluesky, X, Mastodon và các nền tảng khác.</p><hr><footer class=footline></footer></div></div><div id=navigation><a class="nav nav-prev" href=../../../vi/3-blogstranslated/3.1-blog1/ title="Blog 1"><i class="fa fa-chevron-left"></i></a>
-<a class="nav nav-next" href=../../../vi/3-blogstranslated/3.3-blog3/ title="Blog 3" style=margin-right:0><i class="fa fa-chevron-right"></i></a></div></section><div style=left:-1e3px;overflow:scroll;position:absolute;top:-1e3px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=../../../js/clipboard.min.js?1765276331></script><script src=../../../js/perfect-scrollbar.min.js?1765276331></script><script src=../../../js/perfect-scrollbar.jquery.min.js?1765276331></script><script src=../../../js/jquery.sticky.js?1765276331></script><script src=../../../js/featherlight.min.js?1765276331></script><script src=../../../js/highlight.pack.js?1765276331></script><script>hljs.initHighlightingOnLoad()</script><script src=../../../js/modernizr.custom-3.6.0.js?1765276331></script><script src=../../../js/learn.js?1765276331></script><script src=../../../js/hugo-learn.js?1765276331></script><link href=../../../mermaid/mermaid.css?1765276331 rel=stylesheet><script src=../../../mermaid/mermaid.js?1765276331></script><script>mermaid.initialize({startOnLoad:!0})</script><script>(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,(e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date),(i=t.createElement(n),a=t.getElementsByTagName(n)[0]),i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-158079754-2","auto"),ga("send","pageview")</script></body></html>
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/workshop-template/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=workshop-template/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.150.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="thienlh@thienlu.com" />
+
+
+    <link rel="icon" href="../../../images/favicon.png" type="image/png">
+
+
+    <title>Blog 2 :: Báo cáo thực tập</title>
+
+    
+    <link href="../../../css/nucleus.css?1765277995" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765277995" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765277995" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765277995" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765277995" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765277995" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765277995" rel="stylesheet">
+    <link href="../../../css/theme.css?1765277995" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765277995" rel="stylesheet">
+    
+    <link href="../../../css/theme-workshop.css?1765277995" rel="stylesheet">
+    
+    
+
+    <script src="../../../js/jquery-3.3.1.min.js?1765277995"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+
+  </head>
+  <body class="" data-url="../../../vi/3-blogstranslated/3.2-blog2/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="../../../">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a>
+
+</div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../../js/lunr.min.js?1765277995"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765277995"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
+    
+</script>
+<script type="text/javascript" src="../../../js/search.js?1765277995"></script>
+
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/vi/1-worklog/"
+  title="Nhật ký công việc"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/">
+     <b> 1. </b> Nhật ký công việc 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/1-worklog/1.1-week1/"
+  title="Worklog Tuần 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.1-week1/">
+     <b> 1.1. </b> Worklog Tuần 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.2-week2/"
+  title="Worklog Tuần 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.2-week2/">
+     <b> 1.2. </b> Worklog Tuần 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.3-week3/"
+  title="Worklog Tuần 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.3-week3/">
+     <b> 1.3. </b> Worklog Tuần 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.4-week4/"
+  title="Worklog Tuần 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.4-week4/">
+     <b> 1.4. </b> Worklog Tuần 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.5-week5/"
+  title="Worklog Tuần 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.5-week5/">
+     <b> 1.5. </b> Worklog Tuần 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.6-week6/"
+  title="Worklog Tuần 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.6-week6/">
+     <b> 1.6. </b> Worklog Tuần 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.7-week7/"
+  title="Worklog Tuần 7"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.7-week7/">
+     <b> 1.7. </b> Worklog Tuần 7 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.8-week8/"
+  title="Worklog Tuần 8"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.8-week8/">
+     <b> 1.8. </b> Worklog Tuần 8 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.9-week9/"
+  title="Worklog Tuần 9"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.9-week9/">
+     <b> 1.9. </b> Worklog Tuần 9 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.10-week10/"
+  title="Worklog Tuần 10"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.10-week10/">
+     <b> 1.10. </b> Worklog Tuần 10 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.11-week11/"
+  title="Worklog Tuần 11"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.11-week11/">
+     <b> 1.11. </b> Worklog Tuần 11 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.12-week12/"
+  title="Worklog Tuần 12"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.12-week12/">
+     <b> 1.12 </b> Worklog Tuần 12 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/2-proposal/"
+  title="Proposal"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/2-proposal/">
+     <b> 2. </b> Proposal 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/3-blogstranslated/"
+  title="Các bài blogs đã dịch"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/">
+     <b> 3. </b> Các bài blogs đã dịch 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.1-blog1/"
+  title="Blog 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.1-blog1/">
+     <b> 3.1. </b> Blog 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.2-blog2/"
+  title="Blog 2"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.2-blog2/">
+     <b> 3.2. </b> Blog 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.3-blog3/"
+  title="Blog 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.3-blog3/">
+     <b> 3.3. </b> Blog 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/4-eventparticipated/"
+  title="Các events đã tham gia"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/">
+     <b> 4. </b> Các events đã tham gia 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.1-event1/"
+  title="Event 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Event 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.2-event2/"
+  title="Event 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> Event 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.1-workshop-overview/"
+  title="Giới thiệu"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.1-workshop-overview/">
+     <b> 5.1. </b> Giới thiệu 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.2-prerequiste/"
+  title="Chuẩn bị"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Chuẩn bị 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-lambda-basics/"
+  title="Lambda cơ bản"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-lambda-basics/">
+     <b> 5.3. </b> Lambda cơ bản 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-lambda-basics/5.3.1-hello-node/"
+  title="Lambda Hello World (Node.js)"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-lambda-basics/5.3.1-hello-node/">
+     <b> 5.3.1 </b> Lambda Hello World (Node.js) 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-lambda-basics/5.3.2-hello-python/"
+  title="Lambda Hello World (Python)"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-lambda-basics/5.3.2-hello-python/">
+     <b> 5.3.2 </b> Lambda Hello World (Python) 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-api-gateway/"
+  title="API Gateway"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-api-gateway/">
+     <b> 5.4. </b> API Gateway 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-api-gateway/5.4.1-create-api/"
+  title="Tạo REST API"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-api-gateway/5.4.1-create-api/">
+     <b> 5.4.1 </b> Tạo REST API 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-api-gateway/5.4.2-add-post/"
+  title="Thêm phương thức POST"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-api-gateway/5.4.2-add-post/">
+     <b> 5.4.2 </b> Thêm phương thức POST 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-api-gateway/5.4.3-test-api/"
+  title="Kiểm Thử API Gateway"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-api-gateway/5.4.3-test-api/">
+     <b> 5.4.3 </b> Kiểm Thử API Gateway 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-api-gateway/5.4.4-cors-custom-domain/"
+  title="CORS &amp; custom domain"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-api-gateway/5.4.4-cors-custom-domain/">
+     <b> 5.4.4 </b> CORS &amp; custom domain 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.5-sample-app/"
+  title="Ứng dụng mẫu: Gợi ý in-app purchase"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.5-sample-app/">
+     <b> 5.5. </b> Ứng dụng mẫu: Gợi ý in-app purchase 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.6-cleanup/"
+  title="Dọn dẹp tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.6-cleanup/">
+     <b> 5.6. </b> Dọn dẹp tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/6-self-evaluation/"
+  title="Tự đánh giá"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/6-self-evaluation/">
+     <b> 6. </b> Tự đánh giá 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/7-feedback/"
+  title="Chia sẻ, đóng góp ý kiến"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/7-feedback/">
+     <b> 7. </b> Chia sẻ, đóng góp ý kiến 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="http://localhost:1313/workshop-template/3-blogstranslated/3.2-blog2/"
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="http://localhost:1313/workshop-template/vi/3-blogstranslated/3.2-blog2/"
+                  selected
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Blog 2
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents"></nav></div>
+</div>
+
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Blog 2
+            </h1>
+          
+
+        
+
+
+
+
+	<h1 id="thông-báo-amazon-ec2-m4-và-m4-pro-mac-instances">Thông báo Amazon EC2 M4 và M4 Pro Mac instances</h1>
+<p>Bởi <a href="https://aws.amazon.com/blogs/aws/author/stormacq/">Sébastien Stormacq</a> vào ngày 12 THÁNG 9 2025 trong <a href="https://aws.amazon.com/blogs/aws/category/compute/amazon-ec2-mac-instances/">Amazon EC2 Mac Instances</a>, <a href="https://aws.amazon.com/blogs/aws/category/news/launch/">Launch</a>, <a href="https://aws.amazon.com/blogs/aws/category/news/">News</a> <a href="https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/">Permalink</a>  <a href="https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/">Comments</a>
+<a href="https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-m4-and-m4-pro-mac-instances/">Permalink</a> Comments Share
+Voiced by Polly</p>
+<p>Là người đã sử dụng macOS từ năm 2001 và các <a href="https://aws.amazon.com/ec2/instance-types/mac/">Amazon EC2 Mac instances</a> từ khi chúng ra mắt 4 năm trước, tôi đã giúp nhiều khách hàng mở rộng các pipeline tích hợp &amp; phân phối liên tục (CI/CD) trên AWS. Hôm nay, tôi rất hào hứng chia sẻ rằng các instance Amazon EC2 <strong>M4</strong> và <strong>M4 Pro</strong> Mac hiện đã khả dụng chính thức.</p>
+<p>Các nhóm phát triển xây ứng dụng cho các nền tảng Apple cần tài nguyên tính toán mạnh để xử lý các quy trình build phức tạp và chạy nhiều giả lập iOS cùng lúc. Khi các dự án phát triển ngày càng lớn và tinh vi, các nhóm cần hiệu năng và dung lượng bộ nhớ cao hơn để duy trì chu kỳ phát triển nhanh.</p>
+<p><strong>Apple M4 Mac mini làm lõi</strong></p>
+<p>Các instance EC2 M4 Mac (được gọi là mac-m4.metal trong API) được xây dựng dựa trên máy <a href="https://www.apple.com/mac-mini/specs/">Apple M4 Mac mini</a> và sử dụng <a href="https://aws.amazon.com/ec2/nitro/">AWS Nitro System</a>. Chúng có chip Apple silicon M4 với 10 lõi CPU (bốn lõi hiệu năng và sáu lõi hiệu quả), GPU 10 lõi, Neural Engine 16 lõi, và bộ nhớ hợp nhất 24 GB, mang lại hiệu năng cải thiện cho các workload build ứng dụng iOS và macOS. Khi xây dựng và kiểm thử ứng dụng, các instance M4 Mac cho hiệu năng build ứng dụng tốt hơn tới 20% so với các instance EC2 M2 Mac.</p>
+<p>Instance EC2 M4 Pro Mac ( mac-m4pro.metal trong API ) được trang bị chip Apple silicon M4 Pro với 14 lõi CPU, 20 lõi GPU, Neural Engine 16 lõi và bộ nhớ hợp nhất 48 GB. Những instance này cung cấp hiệu năng build ứng dụng tốt hơn tới 15% so với các instance EC2 M2 Pro Mac. Thêm dung lượng bộ nhớ và công suất tính toán cho phép chạy nhiều bài kiểm thử song song bằng nhiều giả lập thiết bị.</p>
+<p>Mỗi instance M4 và M4 Pro Mac giờ đây đi kèm với 2 TB lưu trữ nội bộ (local storage), cung cấp lưu trữ độ trễ thấp để cải thiện caching và hiệu năng build &amp; test.</p>
+<p>Cả hai loại instance đều hỗ trợ macOS <strong>Sonoma phiên bản 15.6 và mới hơn</strong> như các <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon Machine Images (AMIs)</a>. Hệ thống AWS Nitro cung cấp băng thông mạng <a href="https://aws.amazon.com/vpc/">Amazon Virtual Private Cloud (Amazon VPC)</a> lên đến 10 Gbps và băng thông lưu trữ <a href="https://aws.amazon.com/ebs/">Amazon Elastic Block Store (Amazon EBS)</a> 8 Gbps qua kết nối Thunderbolt tốc độ cao.</p>
+<p>Các instance EC2 Mac tích hợp liền mạch với các dịch vụ AWS, nghĩa là bạn có thể:</p>
+<ul>
+<li>
+<p>Xây dựng pipeline CI/CD tự động sử dụng AWS CodeBuild và AWS CodePipeline</p>
+</li>
+<li>
+<p>Lưu trữ và quản lý nhiều phiên bản bí mật build của bạn, như chứng chỉ phát triển Apple và khóa, trên AWS Secrets Manager</p>
+</li>
+<li>
+<p>Quản lý hạ tầng phát triển của bạn bằng AWS CloudFormation</p>
+</li>
+<li>
+<p>Giám sát hiệu năng instance với Amazon CloudWatch</p>
+</li>
+</ul>
+<p><strong>Cách bắt đầu</strong></p>
+<p>Bạn có thể khởi chạy một instance EC2 M4 hoặc M4 Pro Mac qua <a href="https://console.aws.amazon.com/">AWS Management Console</a>, <a href="https://aws.amazon.com/cli/">AWS Command Line Interface (AWS CLI)</a>, or <a href="https://aws.amazon.com/tools/">AWS SDKs</a>.</p>
+<p>Ví dụ trong demo này, tôi sẽ khởi động một instance M4 Pro từ console. Tôi đầu tiên cấp phát một <strong>dedicated host</strong> để chạy các instance của mình. Trên <a href="https://console.aws.amazon.com/">AWS Management Console</a> tôi vào EC2, rồi <strong>Dedicated Hosts</strong>, và chọn <strong>Allocate Dedicated Host</strong>.</p>
+<p>Rồi, tôi nhập tag Name và chọn Family instance (mac‑m4pro) và loại instance (mac‑m4pro.metal). Tôi chọn một Availability Zone và bỏ chọn Host maintenance.</p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a1.png" alt="Capacity Blocks Requirements"></p>
+<p>EC2 Mac M$ – Dedicated hosts
+Hoặc tôi có thể dùng CLI:</p>
+<p><strong>aws ec2 allocate-hosts                          <br>
+&ndash;availability-zone-id &ldquo;usw2-az4&rdquo;       <br>
+&ndash;auto-placement &ldquo;off&rdquo;                  <br>
+&ndash;host-recovery &ldquo;off&rdquo;                   <br>
+&ndash;host-maintenance &ldquo;off&rdquo;                <br>
+&ndash;quantity 1                            <br>
+&ndash;instance-type &ldquo;mac-m4pro.metal&rdquo;</strong></p>
+<p>Sau khi host dedicated được cấp cho tài khoản của tôi, tôi chọn host vừa cấp, rồi chọn menu Actions và chọn Launch instance(s) onto host.
+Lưu ý console cung cấp cho bạn, bên cạnh các thông tin khác, các phiên bản macOS hỗ trợ mới nhất cho loại host này. Trong trường hợp này, là macOS 15.6.</p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a2.png" alt="Capacity Blocks Requirements"></p>
+<p>Trên trang Launch an instance, tôi nhập Name. Tôi chọn một AMI macOS Sequoia. Tôi đảm bảo Architecture là Arm 64-bit và loại instance là mac-m4pro.metal.</p>
+<p>Phần còn lại các tham số không đặc thù cho EC2 Mac: cấu hình mạng và lưu trữ. Khi khởi động một instance dùng cho phát triển, hãy chắc chọn volume tối thiểu 200 GB trở lên. Volume mặc định 100 GB không đủ để tải xuống và cài Xcode.</p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a3.png" alt="Capacity Blocks Requirements"></p>
+<p>Khi đã sẵn sàng, tôi nhấn nút Launch instance màu cam ở cuối trang. Instance sẽ nhanh chóng xuất hiện ở trạng thái Running trong console. Tuy nhiên, có thể mất tới 15 phút để bạn có thể kết nối qua SSH.</p>
+<p>Hoặc tôi có thể dùng lệnh này:</p>
+<p><strong>aws ec2 run-instances <br>
+&ndash;image-id &ldquo;ami-000420887c24e4ac8&rdquo; \  # ID AMI tùy vùng !
+&ndash;instance-type &ldquo;mac-m4pro.metal&rdquo;   <br>
+&ndash;key-name &ldquo;my-ssh-key-name&rdquo;        <br>
+&ndash;network-interfaces &lsquo;{&ldquo;AssociatePublicIpAddress&rdquo;:true,&ldquo;DeviceIndex&rdquo;:0,&ldquo;Groups&rdquo;:[&ldquo;sg-0c2f1a3e01b84f3a3&rdquo;]}&rsquo; \ # Security Group ID phụ thuộc config của bạn <br>
+&ndash;tag-specifications &lsquo;{&ldquo;ResourceType&rdquo;:&ldquo;instance&rdquo;,&ldquo;Tags&rdquo;:[{&ldquo;Key&rdquo;:&ldquo;Name&rdquo;,&ldquo;Value&rdquo;:&ldquo;My Dev Server&rdquo;}]}&rsquo; <br>
+&ndash;placement &lsquo;{&ldquo;HostId&rdquo;:&ldquo;h-0e984064522b4b60b&rdquo;,&ldquo;Tenancy&rdquo;:&ldquo;host&rdquo;}&rsquo; \ # Host ID tùy config của bạn<br>
+&ndash;private-dns-name-options &lsquo;{&ldquo;HostnameType&rdquo;:&ldquo;ip-name&rdquo;,&ldquo;EnableResourceNameDnsARecord&rdquo;:true,&ldquo;EnableResourceNameDnsAAAARecord&rdquo;:false}&rsquo; <br>
+&ndash;count &ldquo;1&rdquo;</strong></p>
+<p><strong>Cài Xcode từ Terminal</strong></p>
+<p>Sau khi instance có thể truy cập, tôi có thể kết nối bằng SSH và cài công cụ phát triển. Tôi dùng <a href="https://github.com/sebsto/xcodeinstall">xcodeinstall</a> để tải và cài <a href="https://developer.apple.com/documentation/Xcode-Release-Notes/xcode-16_4-release-notes">Xcode 16.4</a>.</p>
+<p>Từ laptop của tôi, tôi mở session với credentials Apple developer:</p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a4.png" alt="Capacity Blocks Requirements"></p>
+<p>Tôi kết nối với EC2 Mac instance cái mà tôi vừa mới launched. Sau đó, tôi tải và cài đặc Xcode:</p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a5.png" alt="Capacity Blocks Requirements"></p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a6.png" alt="Capacity Blocks Requirements"></p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a7.png" alt="Capacity Blocks Requirements"></p>
+<p><strong>Những điều cần biết</strong></p>
+<ul>
+<li>
+<p>Chọn volume EBS tối thiểu 200 GB cho mục đích phát triển. Volume mặc định 100 GB không đủ để cài Xcode. Tôi thường chọn 500 GB. Khi tăng kích thước EBS sau khi instance đã khởi chạy, nhớ to resize the APFS filesystem.</p>
+</li>
+<li>
+<p>Ngoài ra, bạn có thể chọn cài công cụ phát triển và framework của bạn lên ổ SSD nội bộ 2 TB độ trễ thấp có sẵn trong Mac mini. Lưu ý rằng nội dung volume này gắn với vòng đời instance, không với dedicated host. Nghĩa là mọi thứ sẽ bị xóa khỏi ổ SSD nội bộ khi bạn dừng và khởi động lại instance.</p>
+</li>
+<li>
+<p>Các instance mac-m4.metal và mac-m4pro.metal hỗ trợ macOS Sequoia 15.6 và các phiên bản mới hơn.</p>
+</li>
+<li>
+<p>Bạn có thể di chuyển các instance EC2 Mac hiện tại khi instance di chuyển đang chạy macOS 15 (Sequoia). Tạo một AMI tùy chỉnh từ instance hiện tại và khởi động một instance M4 hoặc M4 Pro từ AMI đó.</p>
+</li>
+</ul>
+<p>Cuối cùng, tôi gợi ý bạn xem các hướng dẫn tôi viết để giúp bạn bắt đầu với EC2 Mac:</p>
+<ul>
+<li>
+<p><a href="https://builder.aws.com/content/2duUEgh4u4TIDqfECiDkEbrn2Iw/start-an-amazon-ec2-mac-instance">Khởi động một instance EC2 Mac</a></p>
+</li>
+<li>
+<p><a href="https://builder.aws.com/content/2duUtYq4ENzOLGLdEg0A3aeyCuj/connect-to-an-amazon-ec2-mac-instance">Kết nối tới instance EC2 Mac</a> (tôi chỉ bạn ba cách khác nhau để kết nối)</p>
+</li>
+<li>
+<p><a href="https://builder.aws.com/content/2duRxOl9WuYETq6dMhAQQ1kDZLr/build-your-ios-applications-faster-with-a-cicd-pipeline">Xây ứng dụng nhanh hơn với pipeline CI/CD trên EC2 Mac</a></p>
+</li>
+</ul>
+<p><strong>Giá cả và khả dụng</strong></p>
+<p>Các instance EC2 M4 và M4 Pro Mac hiện có tại <strong>US East (N. Virginia)</strong> và <strong>US West (Oregon)</strong>, dự kiến mở rộng sang các vùng khác trong tương lai.
+Các instance EC2 Mac có thể mua dưới dạng <strong>Dedicated Hosts</strong> theo mô hình giá On-Demand và <a href="https://aws.amazon.com/savingsplans/">Savings Plans</a>. Việc tính phí cho EC2 Mac là theo giây với mức tối thiểu 24 giờ cấp phát để tuân theo Thỏa thuận Bản quyền phần mềm macOS của Apple. Sau khoảng thời gian tối thiểu 24 giờ, host có thể được giải phóng bất cứ lúc nào mà không cần cam kết tiếp.</p>
+<p>Là người làm việc chặt với các nhà phát triển Apple, tôi tò mò xem bạn sẽ dùng các instance mới này như thế nào để tăng tốc chu kỳ phát triển của bạn. Sự kết hợp giữa hiệu năng gia tăng, dung lượng bộ nhớ cải thiện và tích hợp với dịch vụ AWS mở ra nhiều khả năng mới cho các đội xây ứng dụng cho iOS, macOS, iPadOS, tvOS, watchOS, và visionOS. Ngoài phát triển ứng dụng, Neural Engine của Apple silicon khiến các instance này là ứng viên hiệu quả chi phí để chạy workload inference <a href="https://aws.amazon.com/ai/machine-learning/">machine learning (ML)</a>. Tôi sẽ thảo luận chi tiết chủ đề này tại AWS re:Invent 2025, nơi tôi sẽ chia sẻ benchmark và best practices để tối ưu workload ML trên EC2 Mac.</p>
+<p>Để tìm hiểu thêm về các instance EC2 M4 và M4 Pro Mac, bạn có thể truy cập trang <a href="https://aws.amazon.com/ec2/instance-types/mac/">Amazon EC2 Mac Instances</a>  hoặc tham khảo <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">EC2 Mac documentation</a>. Bạn có thể bắt đầu sử dụng các instance này ngay hôm nay để hiện đại hóa workflow phát triển Apple trên AWS.</p>
+<p><img src="../../../images/3-BlogsTranslated/3.2-Blog2/a8.png" alt="Capacity Blocks Requirements">
+<a href="https://linktr.ee/sebsto">Sébastien Stormacq</a></p>
+<p>Seb đã viết code từ khi chạm Commodore 64 giữa những năm tám mươi. Anh truyền cảm hứng cho những người xây dựng để khai phá giá trị của đám mây AWS, dùng hỗn hợp bí mật giữa đam mê, nhiệt huyết, advocacy khách hàng, tò mò và sáng tạo. Anh ta quan tâm đến kiến trúc phần mềm, công cụ dev và điện toán di động. Nếu bạn muốn bán cho anh cái gì đó, đảm bảo nó có API. Theo dõi @sebsto trên Bluesky, X, Mastodon và các nền tảng khác.</p>
+<hr>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../../vi/3-blogstranslated/3.1-blog1/" title="Blog 1"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../../vi/3-blogstranslated/3.3-blog3/" title="Blog 3" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../../js/clipboard.min.js?1765277995"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765277995"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765277995"></script>
+    <script src="../../../js/jquery.sticky.js?1765277995"></script>
+    <script src="../../../js/featherlight.min.js?1765277995"></script>
+    <script src="../../../js/highlight.pack.js?1765277995"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765277995"></script>
+    <script src="../../../js/learn.js?1765277995"></script>
+    <script src="../../../js/hugo-learn.js?1765277995"></script>
+
+    <link href="../../../mermaid/mermaid.css?1765277995" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765277995"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+
+  </body>
+</html>
+
+

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Ứng dụng mẫu: Gợi ý in-app purchase"
 weight: 5
 chapter: false

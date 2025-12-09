@@ -1,43 +1,27 @@
-﻿---
-title : "Create an S3 Interface endpoint"
-date: 2025-09-10T15:39:35+07:00
-weight : 2
-chapter : false
-pre : " <b> 5.4.2 </b> "
+---
+title: "Add POST Method"
+weight: 2
+chapter: false
+pre: " <b> 5.4.2 </b> "
 ---
 
-In this section you will create and test an S3 interface endpoint using the simulated on-premises environment deployed as part of this workshop.
+## Configure POST /hello
 
-1. Return to the Amazon VPC menu. In the navigation pane, choose Endpoints, then click Create Endpoint.
+- Select the `/hello` resource → **Add method** → POST → **Lambda Function**.  
+- Choose the same Lambda function used for GET.  
+- Use **Lambda proxy integration** (recommended) so Lambda receives the full request; parse `event.body` (JSON) in the function.
+![image](/images/5-Workshop/5.4-API-Gateway/5.4.2/create_get.png)
+## Deploy & Test
 
-2. In Create endpoint console:
-+ Name the interface endpoint
-+ In Service category, choose **aws services** 
+- Redeploy the `dev` stage.  
+- Test the endpoint:
 
-![name](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint1.png)
+```bash
+curl -X POST -H "Content-Type: application/json" \\
+  -d '{}' \\
+  \"https://<id>.execute-api.<region>.amazonaws.com/dev/hello\"
+```
 
-3.  In the Search box, type S3 and press Enter. Select the endpoint named com.amazonaws.us-east-1.s3. Ensure that the Type column indicates Interface.
+- Ensure the JSON response returns the correct name; check CloudWatch logs if there are errors.
 
-![service](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint2.png)
-
-4. For VPC, select VPC Cloud from the drop-down.
-{{% notice warning %}}
-Make sure to choose "VPC Cloud" and not "VPC On-prem"
-{{% /notice %}}
-+ Expand **Additional settings** and ensure that Enable DNS name is *not* selected (we will use this in the next part of the workshop)
-
-![vpc](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint3.png)
-
-5. Select 2 subnets in the following AZs: us-east-1a and us-east-1b
-
-![subnets](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint4.png)
-
-6. For Security group, choose SGforS3Endpoint:
-
-![sg](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint5.png)
-
-7. Keep the default policy - full access and click Create endpoint
-
-![success](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint-success.png)
-
-Congratulation on successfully creating S3 interface endpoint. In the next step, we will test the interface endpoint.
+![image](/images/5-Workshop/5.4-API-Gateway/5.4.2/curl.png)
